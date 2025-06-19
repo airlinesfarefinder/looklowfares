@@ -13,8 +13,8 @@
                             <div id="nav_menu" class="menu">
                                 <ul class="clearfix">
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a href="#">Flight Deals</a></li>
-                                    <li><a href="#">Tours</a></li>
+                                    <li><a href="index.php#top_flights">Flight Deals</a></li>
+                                    <li><a href="index.php#grid">Tours</a></li>
                                     <li><a href="about-us.php">About Us</a></li>
                                     <li><a href="contact-us.php">Contact Us</a></li>
                                 </ul>
