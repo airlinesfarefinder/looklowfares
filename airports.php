@@ -41,7 +41,7 @@ function searchAirports(PDO $pdo, string $searchTerm, int $limit = 10): array
 
 $search_term = $_POST['search'];
 
-$pdo = new PDO('mysql:host=localhost;dbname=crm', 'root', '');
+$pdo = new PDO('mysql:host=mysql-database-eskscko8k04so8kwoogok40g;dbname=llf', 'root', 'Admin@8998');
 $results = searchAirports($pdo, $search_term);
 
 
