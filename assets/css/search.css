@@ -1,0 +1,577 @@
+.search_wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin-top: 50px;
+  border-radius: 12px;
+}
+
+#search_form {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  padding-bottom: 20px;
+}
+
+#search_form .content {
+  position: relative;
+  display: block;
+  width: calc(100% - 100px);
+  float: left;
+}
+
+#search_form .content:first-child {
+  width: 100%;
+}
+
+#search_form .button_wrapper {
+  position: absolute;
+  top: 126px;
+  right: 7px;
+  display: block;
+  width: 100px;
+  float: left;
+}
+
+#search_form .button_wrapper .button {
+  width: 100%;
+  border-radius: 3px;
+  padding: 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  border: 1px solid #6791e1;
+  background: #0b4187;
+  height: 52px;
+  border-radius: 0;
+}
+
+#search_form .travel_type {
+  position: relative;
+  display: block;
+  padding: 10px 0px;
+  margin: 0;
+  user-select: none;
+}
+
+#search_form .travel_type li {
+  position: relative;
+  display: block;
+  width: auto;
+  float: left;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-transform: capitalize;
+  font-size: 13px;
+  border: 2px solid #004284;
+  cursor: pointer;
+}
+
+#search_form .travel_type li + li {
+  margin-left: 5px;
+}
+
+#search_form .travel_type li::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 8px);
+  left: 5px;
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: none;
+}
+
+#search_form .travel_type li::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 10px;
+  height: 5px;
+  border: 2px solid #3d2959;
+  border-top: 0;
+  border-right: 0;
+  transform: rotate(-45deg);
+  display: none;
+}
+
+#search_form .travel_type li.active::after,
+#search_form .travel_type li.active::before {
+  display: block;
+}
+
+#search_form .travel_type li.active {
+  background-color: #004284;
+  color: #fff;
+  padding-left: 25px;
+}
+
+#search_form .input_holder {
+  border: 1px solid #dbdbdb;
+  padding: 5px 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#search_form .input_holder .title {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 500;
+  color: #666;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#search_form .input_holder .excerpt {
+  font-size: 15px;
+  font-weight: 600;
+  color: #201b25;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#search_form .input_holder .text {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #434343;
+}
+
+#search_form .input_holder:hover {
+  background-color: #f6efff;
+}
+
+#search_form .airports .col-sm-6:nth-child(1) .input_holder {
+  padding-right: 15px;
+}
+
+#search_form .airports .col-sm-6:nth-child(2) .input_holder {
+  padding-left: 15px;
+}
+
+#search_form .airports .reverser {
+  position: absolute;
+  left: calc(50% - 15px);
+  width: 30px;
+  height: 100%;
+  z-index: 3;
+  cursor: pointer;
+}
+
+#search_form .airports .reverser::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  background: #d1d1d1;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+#search_form .airports .reverser::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 6px);
+  left: calc(50% - 6px);
+  width: 12px;
+  height: 12px;
+  z-index: 3;
+  background-image: url("../img/exchange.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.airport_search_modal {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  z-index: 5;
+  display: none;
+}
+
+.airport_search_modal .search_input {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.airport_search_modal .search_input input {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 45px;
+  border: 1px solid #d3d3d3;
+  border-left: 0;
+  border-right: 0;
+  padding: 0 10px;
+  box-shadow: 0px 3px 3px #0000004d;
+}
+
+.airport_search_modal .results {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.airport_search_modal .results ul {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.airport_search_modal .results ul li {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.airport_search_modal .results ul li:hover {
+  background-color: #eaedff;
+}
+
+.airport_search_modal .results ul li .text {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-right: 50px;
+}
+
+.airport_search_modal .results ul li .airport_name {
+  position: relative;
+  display: block;
+  font-size: 13px;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #333;
+}
+
+.airport_search_modal .results ul li .place_name {
+  position: relative;
+  display: block;
+  font-size: 13px;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #6b6b6b;
+}
+
+.airport_search_modal.active {
+  display: block;
+}
+
+.airport_search_modal .results ul li .iata_code {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 15px;
+  font-weight: 600;
+  color: #191a1c;
+}
+
+/* Traveller Class */
+#traveller_modal {
+  position: absolute;
+  top: 50px;
+  right: 110px;
+  min-width: 250px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  box-shadow: 2px 3px 5px -3px #00000080;
+  user-select: none;
+  display: none;
+  z-index: 9;
+}
+
+#traveller_modal .traveller_count .item_wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 5px 0px;
+}
+#traveller_modal .traveller_count .item {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+#traveller_modal .traveller_count .item::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#traveller_modal .traveller_count .item .title {
+  position: relative;
+  display: block;
+  width: 50%;
+  font-weight: 600;
+  font-size: 14px;
+  color: #232429;
+  float: left;
+  text-transform: capitalize;
+}
+#traveller_modal .traveller_count .item .title .sub {
+  position: relative;
+  display: block;
+  font-size: 13px;
+  color: #575757;
+  font-weight: 400;
+}
+#traveller_modal .traveller_count .item .selection_box {
+  position: relative;
+  display: block;
+  width: 50%;
+  float: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+#traveller_modal .traveller_count .item .selection_box .control {
+  position: relative;
+  display: block;
+  width: 27%;
+  height: 30px;
+  background: #efefef;
+  float: left;
+  cursor: pointer;
+}
+
+#traveller_modal .traveller_count .item .selection_box .control::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-image: url("../img/plus.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+}
+
+#traveller_modal .traveller_count .item .selection_box .control.minus::after {
+  background-image: url("../img/minus.png");
+}
+
+#traveller_modal .traveller_count .item .selection_box .value {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46%;
+  height: 30px;
+  float: left;
+  background: #f9f9f9;
+  font-size: 14px;
+  font-weight: 600;
+  color: #22232b;
+}
+
+#traveller_modal .is_group {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  background: #3e2957;
+  border-radius: 6px;
+  padding: 3px 0px;
+  cursor: pointer;
+}
+#traveller_modal .is_group .checkbox {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  margin: 0;
+  top: 5px;
+  left: 5px;
+  background: #fff;
+}
+
+#traveller_modal .is_group .checkbox::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  display: none;
+  width: 6px;
+  height: 12px;
+  border: 3px solid #402955;
+  border-left: 0;
+  border-top: 0;
+  transform: rotate(45deg);
+}
+
+#traveller_modal .is_group.checked .checkbox::after {
+  display: block;
+}
+
+#traveller_modal .is_group .text {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-left: 30px;
+  color: #fff;
+}
+
+#traveller_modal .travel_class {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+#traveller_modal .travel_class li {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #edeaea;
+  margin-bottom: 7px;
+  font-size: 13px;
+  color: #161515;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+#traveller_modal .travel_class li.selected {
+  background-color: #2196f3;
+  color: #fff;
+  font-size: 14px;
+}
+
+#traveller_modal .button {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 12px;
+}
+
+#traveller_modal.active {
+  display: block;
+}
+
+#search_flights .input_wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+#search_flights .input_wrapper input {
+  border: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  padding-top: 17px;
+  padding-left: 5px;
+}
+
+#search_flights .input_wrapper label {
+  position: absolute;
+  display: block;
+  width: 100%;
+  z-index: 1;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6f6f6f;
+  top: 3px;
+  left: 5px;
+}
+
+@media (max-width: 768px) {
+  #search_form .content {
+    width: 100%;
+    float: none;
+  }
+
+  #search_form .airports .col-sm-6:nth-child(1) .input_holder {
+    padding-bottom: 15px;
+    padding-right: 5px;
+  }
+
+  #search_form .airports .col-sm-6:nth-child(2) .input_holder {
+    padding-top: 15px;
+    padding-left: 5px;
+  }
+
+  #search_form .airports .reverser {
+    transform: rotate(90deg);
+  }
+
+  #search_form .button_wrapper {
+    float: none;
+    width: auto;
+    margin-top: 15px;
+    left: 7px;
+    bottom: 5px;
+    top: initial;
+  }
+
+  #search_form .content {
+    width: 100%;
+    float: none;
+  }
+
+  #traveller_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  #traveller_modal .button {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    width: auto;
+  }
+
+  #search_form {
+    padding-bottom: 64px;
+  }
+
+  #search_form .button_wrapper .button {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}

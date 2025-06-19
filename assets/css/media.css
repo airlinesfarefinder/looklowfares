@@ -1,0 +1,117 @@
+/*extra small*/
+@media (max-width: 768px) {
+  #nav {
+    width: 100%;
+    left: 0;
+  }
+
+  #nav .menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    z-index: 9;
+    width: calc(100% - 10px);
+    top: 56px;
+    left: 5px;
+    border-radius: 9px;
+  }
+
+  #nav .menu.active {
+    display: block;
+  }
+
+  #nav .menu ul li {
+    position: relative;
+    display: block;
+    float: none;
+  }
+
+  #nav .logo {
+    width: 100%;
+    background-size: 97%;
+  }
+
+  #nav .menu.right {
+    display: block;
+    position: relative;
+    top: 0;
+    background: no-repeat;
+    width: 100%;
+  }
+
+  #nav .menu.right li {
+    width: auto;
+    float: left;
+    margin: 0 6px;
+  }
+
+  #nav .menu.right .icononly {
+    display: block;
+  }
+
+  #top_flights {
+    padding: 10px;
+  }
+
+  #about {
+    padding: 15px;
+  }
+
+  #footer {
+    padding: 15px;
+  }
+
+  #small_banner {
+    padding: 15px !important;
+  }
+
+  .nav_call {
+    top: 75px;
+    background: #ededed;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav_call .inner {
+    text-align: center;
+    width: auto;
+    display: inline-block;
+    position: relative;
+    padding-left: 12px;
+    background: #ededed !important;
+  }
+
+  #banner .heading {
+    margin-top: 160px;
+  }
+
+  #nav #nav_toggle {
+    position: absolute;
+    background-image: url("../img/more.png");
+    display: block;
+    width: 60px;
+    height: 71px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45%;
+    right: 0;
+  }
+}
+
+/*extra small end*/
+
+/*small*/
+@media (min-width: 768px) {
+}
+/*small end*/
+
+/*medium */
+@media (min-width: 992px) {
+}
+/*medium end*/
+
+/*large*/
+@media (min-width: 1200px) {
+}
+
+/*large end*/

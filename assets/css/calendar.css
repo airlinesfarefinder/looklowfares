@@ -1,0 +1,241 @@
+#calendar_modal {
+  position: absolute;
+  display: none;
+  top: 50px;
+  background: #fff;
+  min-width: 300px;
+  right: 15%;
+  border: 1px solid #ccc;
+  z-index: 9;
+  min-height: 55px;
+}
+
+#calendar_modal.active {
+  display: block;
+}
+
+#calendar_modal .header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  right: 10px;
+  user-select: none;
+}
+
+#calendar_modal .header .controls span {
+  position: relative;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+#calendar_modal .header .controls span i {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #000;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+#calendar_modal .header .controls .prev {
+  float: left;
+}
+
+#calendar_modal .header .controls .next {
+  float: right;
+}
+
+#calendar_modal .header .controls .prev i {
+  transform: rotate(135deg);
+  left: 11px;
+}
+
+#calendar_modal .months_holder {
+  position: relative;
+  display: block;
+  width: 100%;
+  user-select: none;
+  white-space: nowrap;
+}
+
+#calendar_modal .months_holder .month {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+#calendar_modal .months_holder .title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+#calendar_modal .months_holder .month .days_holder {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 5px 5px;
+}
+
+#calendar_modal .months_holder .month .days_holder .week {
+  position: relative;
+  display: block;
+  list-style: none;
+  margin: 0;
+  white-space: nowrap;
+  padding: 0;
+}
+
+#calendar_modal .months_holder .month .days_holder .week::after,
+#calendar_modal .header .months_holder {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day {
+  position: relative;
+  display: block;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  float: left;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day .value {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: 400;
+  z-index: 1;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.name .value {
+  font-size: 12px;
+  color: #777777;
+}
+
+#calendar_modal .months_holder.two_months .month {
+  width: 50%;
+  display: inline-block;
+}
+
+#calendar_modal .months_holder.two_months .month:nth-child(1) {
+  padding-right: 10px;
+}
+
+#calendar_modal .months_holder.two_months .month:nth-child(2) {
+  padding-left: 10px;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day::before,
+#calendar_modal .months_holder .month .days_holder .week .day::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.name::after,
+#calendar_modal .months_holder .month .days_holder .week .day.name::before,
+#calendar_modal .months_holder .month .days_holder .week .day.empty::after,
+#calendar_modal .months_holder .month .days_holder .week .day.empty::before {
+  display: none;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day:hover::before {
+  background-color: #eae5ef;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.selected::after {
+  background-color: #3e2957;
+  border-radius: 5px;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.disabled::after,
+#calendar_modal .months_holder .month .days_holder .week .day.disabled::before {
+  display: none;
+}
+
+#calendar_modal
+  .months_holder
+  .month
+  .days_holder
+  .week
+  .day.range_start::after {
+  background-color: #3e2957;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.range_end::after {
+  background-color: #3e2957;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.in_range::after {
+  background-color: #f3e9ff;
+  border-radius: 0;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.selected .value,
+#calendar_modal
+  .months_holder
+  .month
+  .days_holder
+  .week
+  .day.range_start
+  .value,
+#calendar_modal .months_holder .month .days_holder .week .day.range_end .value {
+  color: #fff;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.disabled {
+  cursor: not-allowed;
+}
+
+#calendar_modal .months_holder .month .days_holder .week .day.disabled .value {
+  color: #939393;
+}
+
+#calendar_modal .header .controls .prev.disabled,
+#calendar_modal .header .controls .next.disabled {
+  opacity: 0.35;
+}
+
+@media (max-width: 768px) {
+  #calendar_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  #calendar_modal .months_holder.two_months .month {
+    width: 100%;
+    display: block;
+  }
+
+  #calendar_modal .months_holder .month .days_holder .week .day {
+    width: 14.28%;
+  }
+}
